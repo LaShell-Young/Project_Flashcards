@@ -1,0 +1,11 @@
+.deck-card-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.deck-card-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}

@@ -1,0 +1,51 @@
+{
+  "decks": [
+    {
+      "name": "React Router",
+      "description": "React Router is a collection of navigational components that compose declaratively with your application.",
+      "id": 2
+    },
+    {
+      "name": "React 2",
+      "description": "React 2 is your mom. PS shut up.",
+      "id": 3
+    },
+    {
+      "name": "coochie",
+      "description": "Homeless Squidward asking for change.",
+      "id": 4
+    }
+  ],
+  "cards": [
+    {
+      "front": "What path will match the follow Route?\n<Route>\n  <NotFound />\n</Route>",
+      "back": "All paths. A route with no path matches all URL's",
+      "deckId": 2,
+      "id": 4
+    },
+    {
+      "front": "What does <Switch> do?",
+      "back": "Renders the first matching child <Route> ",
+      "deckId": 2,
+      "id": 5
+    },
+    {
+      "front": "What an idiot",
+      "back": "eggs in a bag",
+      "deckId": 3,
+      "id": 6
+    },
+    {
+      "front": "What does callete do?",
+      "back": "Slaps your face",
+      "deckId": 3,
+      "id": 7
+    },
+    {
+      "front": "Hey baby...",
+      "back": "Can I have your number? ;)",
+      "deckId": 3,
+      "id": 8
+    }
+  ]
+}
