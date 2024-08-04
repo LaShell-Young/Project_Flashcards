@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, useHistory, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createDeck } from "../../utils/api/index";
 import CreateForm from "./CreateForm";
+import NavBar from "./NavBar";
 
 function CreateDeck() {
     const history = useNavigate();
@@ -31,18 +32,7 @@ function CreateDeck() {
 
     return (
         <div>
-            <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                        <Link to="/">
-                            <span className="oi oi-home"></span> Home
-                        </Link>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current="page">
-                        Create Deck
-                    </li>
-                </ol>
-            </nav>
+            <NavBar path={window.location.href} />
             <h1>Create Deck</h1>
             <CreateForm formType={"deck"} handleSubmit={handleSubmit} handleCancel={handleCancel} />
         </div>

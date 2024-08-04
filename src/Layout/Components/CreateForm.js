@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function CreateForm({ formType, handleSubmit, handleCancel }) {
     const [objectInfo, setObjectInfo] = useState({});
-    // useEffect(() => {
-    //     setDeckInfo(deck);
-    // }, [deck]);
     const updateForm = (event) => {
         const { name, value } = event.target;
         setObjectInfo({ ...objectInfo, [name]: value });
