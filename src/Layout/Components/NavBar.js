@@ -19,6 +19,8 @@ function NavBar({ path, deck }) {
         return page;
     }
 
+    const pageName = getCurrentPage();
+
     return (
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
@@ -28,14 +30,22 @@ function NavBar({ path, deck }) {
                     </Link>
                 </li>
                 {
-                    deck &&
+                    // deck &&
+                    // deck && Object.keys(deck).length === 0 &&
+                    Object.keys(deck).length !== 0 &&
                     <li className="breadcrumb-item">
-                        <Link to={`/decks/${deck.id}`}>{deck.name}</Link>
+                        {pageName === "" ?
+                            `${deck.name}` :
+                            <Link to={`/decks/${deck.id}`}>{deck.name}</Link>
+                        }
                     </li>
                 }
-                <li className="breadcrumb-item active" aria-current="page">
-                    {getCurrentPage()}
-                </li>
+                {
+                    pageName !== "" &&
+                    <li className="breadcrumb-item active" aria-current="page">
+                        {pageName}
+                    </li>
+                }
             </ol>
         </nav>
     )
