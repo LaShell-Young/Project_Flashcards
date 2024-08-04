@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function CreateForm({ formType, handleSubmit, handleCancel, object = {} }) {
+function EditForm({ formType, handleSubmit, handleCancel, object = {} }) {
     const [objectInfo, setObjectInfo] = useState(object);
+    // Effect to update objectInfo when the object prop changes
+    useEffect(() => {
+        setObjectInfo(object);
+    }, [object]);
 
     const updateForm = (event) => {
         const { name, value } = event.target;
@@ -88,4 +92,4 @@ function CreateForm({ formType, handleSubmit, handleCancel, object = {} }) {
     );
 }
 
-export default CreateForm;
+export default EditForm;

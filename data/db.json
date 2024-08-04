@@ -11,14 +11,24 @@
       "id": 3
     },
     {
-      "name": "please work",
-      "description": "damn",
+      "name": "Almost done?",
+      "description": "Fuck yea!",
       "id": 4
     },
     {
       "name": "a new deck",
       "description": "sdkfnskjnfjnksandnjncksjndckjsnkjnalkdnkjsbflsjrc asdv sdjfnlasjkdna odvjncajkndklanknasfnajcdcnakd casdnaso cdnvad",
       "id": 5
+    },
+    {
+      "name": "Can I edit a deck?",
+      "description": "yes.",
+      "id": 6
+    },
+    {
+      "name": "Am I able to create a new deck?",
+      "description": "Yes!",
+      "id": 7
     }
   ],
   "cards": [
@@ -53,22 +63,22 @@
       "id": 10
     },
     {
-      "front": "kxzjfvnad",
-      "back": "vkxcdn;svdvcsd",
+      "front": "Can I get edit card to work?",
+      "back": "Yes baby!",
       "deckId": 4,
       "id": 11
-    },
-    {
-      "front": "aldfjdkfmn",
-      "back": "card skfjls",
-      "deckId": 4,
-      "id": 12
     },
     {
       "front": "test success toast",
       "back": "big boy 888",
       "deckId": 4,
       "id": 13
+    },
+    {
+      "front": "Can I edit cards?",
+      "back": "Yes!",
+      "deckId": 7,
+      "id": 14
     }
   ]
 }

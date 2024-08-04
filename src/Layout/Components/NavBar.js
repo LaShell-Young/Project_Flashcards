@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function NavBar({ path, deck }) {
+    const { deckId, cardId } = useParams();
+    console.log(deckId)
+
     const getCurrentPage = () => {
         let page = "";
         if (path.endsWith("/decks/new"))
@@ -11,7 +14,7 @@ function NavBar({ path, deck }) {
         else if (path.endsWith("edit") && !path.includes("cards"))
             page = "Edit";
         else if (path.endsWith("edit") && path.includes("cards")) {
-            const cardId = path.split("/cards/")[1];
+            // const cardId = path.split("/cards/")[1];
             page = `Edit Card ${cardId}`;
         } else if (path.endsWith("/cards/new"))
             page = "Add Card";
