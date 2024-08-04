@@ -1,0 +1,26 @@
+.card-content {
+  display: flex;
+  align-items: center; /* Optional: vertically center align the text */
+  flex-grow: 1; /* Allows the card-content to take the available space */
+}
+
+.card-text {
+  padding-bottom: 5%;
+  /* padding-top: 5%; */
+}
+
+.card {
+  height: 100%;
+}
+
+.card-buttons {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  display: flex;
+  align-items: center; /* Vertically center the buttons */
+}
+
+.card-body {
+  padding-bottom: 3rem; /* Adjust as needed */
+}

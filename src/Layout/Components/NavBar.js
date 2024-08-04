@@ -31,8 +31,8 @@ function NavBar({ path, deck }) {
                 </li>
                 {
                     // deck &&
-                    // deck && Object.keys(deck).length === 0 &&
-                    Object.keys(deck).length !== 0 &&
+                    // Object.keys(deck).length !== 0 &&
+                    deck && Object.keys(deck).length !== 0 &&
                     <li className="breadcrumb-item">
                         {pageName === "" ?
                             `${deck.name}` :

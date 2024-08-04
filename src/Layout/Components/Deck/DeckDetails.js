@@ -2,15 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import {
     Link,
     useParams,
-    useHistory,
     useNavigate,
-    useMatch,
 } from "react-router-dom";
 import { readDeck, deleteDeck, deleteCard } from "../../../utils/api";
 import classNames from "../../../utils/class-names";
-// import CardList from "../Cards/CardList";
 import NavBar from "../NavBar";
-import NotFound from "../../NotFound";
+import CardList from "../Card/CardList";
 
 function DeckDetails() {
     const [deck, setDeck] = useState({});
@@ -19,29 +16,18 @@ function DeckDetails() {
 
     const history = useNavigate();
 
-    useEffect(() => {
-        setDeck([]);
-        // setup for pending api calls to be cancelled
-        const abortController = new AbortController();
-        async function loadDeckData() {
-            const deckId = window.location.href.split("/decks/")[1];
-            try {
-                let _decks = await readDeck(deckId, abortController.signal);
-                setDeck(_decks);
-            } catch (error) {
-                if (error.name === "AbortError") {
-                    // Ignore `AbortError`
-                    console.log(`Aborted! Get deck ${deckId} details.`);
-                } else {
-                    // throw error;
-                    console.log(error)
-                }
-            }
+    const getDeckDetails = useCallback(async () => {
+        try {
+            const deckData = await readDeck(deckId);
+            setDeck(deckData);
+        } catch (error) {
+            setDeck({ name: "Not Found" });
         }
-        loadDeckData();
+    }, [deckId]);
 
-        return () => abortController.abort(); // Cancels any pending request or response
-    }, [])
+    useEffect(() => {
+        getDeckDetails();
+    }, [deckId, getDeckDetails]);
 
     async function handleDeleteDeck() {
         if (window.confirm("Delete this deck?\n\nYou will not be able to recover it.")) {
@@ -50,11 +36,18 @@ function DeckDetails() {
         }
     }
 
+    async function handleDeleteCard(cardId) {
+        if (window.confirm("Delete this Card?\n\nYou will not be able to recover it.")) {
+            await deleteCard(cardId);
+            getDeckDetails();
+        }
+    }
+
     return (
         <>
             <NavBar path={window.location.href} deck={deck} />
-            {Object.keys(deck).length === 0 ?
-                <NotFound /> :
+            {Object.keys(deck).length === 1 ?
+                <h3>{deck.name}</h3> :
                 <div>
                     <h3 className={classNames({ "animated-bg animated-bg-text": !name })}>
                         {name}
@@ -103,8 +96,7 @@ function DeckDetails() {
                             <span className="oi oi-trash"></span>
                         </button>
                     </div>
-
-                    {/* <CardList deck={deckInfo} deleteHandler={deleteHandler} /> */}
+                    <CardList deck={deck} deleteHandler={handleDeleteCard} />
                 </div>
             }
         </>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-function CreateForm({ formType, handleSubmit, handleCancel }) {
-    const [objectInfo, setObjectInfo] = useState({});
+function CreateForm({ formType, handleSubmit, handleCancel, object = {} }) {
+    const [objectInfo, setObjectInfo] = useState(object);
     const updateForm = (event) => {
         const { name, value } = event.target;
-        setObjectInfo({ ...objectInfo, [name]: value });
+        setObjectInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
     };
     const submit = (event) => {
         event.preventDefault();
@@ -15,10 +15,11 @@ function CreateForm({ formType, handleSubmit, handleCancel }) {
         return formType === "deck";
     }
 
+    console.log(objectInfo)
     return (
         <form onSubmit={submit}>
             <div className="form-group">
-                {isDeckForm ?
+                {isDeckForm() ?
                     <>
                         <label htmlFor="name">Name</label>
                         <input
@@ -26,7 +27,7 @@ function CreateForm({ formType, handleSubmit, handleCancel }) {
                             type="text"
                             id="name"
                             name="name"
-                            placeholder="Deck Name"
+                            placeholder={!object?.name ? "Deck name" : object.name}
                             value={objectInfo?.name || ""}
                             onChange={updateForm}
                             required
@@ -40,7 +41,7 @@ function CreateForm({ formType, handleSubmit, handleCancel }) {
                             type="text"
                             id="front"
                             name="front"
-                            placeholder="Front side of card"
+                            placeholder={!object?.front ? "Front side of card" : object.front}
                             value={objectInfo?.front || ""}
                             onChange={updateForm}
                             required
@@ -49,14 +50,14 @@ function CreateForm({ formType, handleSubmit, handleCancel }) {
                 }
             </div>
             <div className="form-group">
-                {isDeckForm ?
+                {isDeckForm() ?
                     <>
                         <label htmlFor="description">Description</label>
                         <textarea
                             className="form-control"
                             name="description"
                             id="description"
-                            placeholder="Brief description of the deck"
+                            placeholder={!object?.description ? "Brief description of the deck" : object.description}
                             value={objectInfo?.description || ""}
                             onChange={updateForm}
                             required
@@ -68,7 +69,7 @@ function CreateForm({ formType, handleSubmit, handleCancel }) {
                             className="form-control"
                             name="back"
                             id="back"
-                            placeholder="Back side of card"
+                            placeholder={!object?.back ? "Back side of card" : object.back}
                             value={objectInfo?.back || ""}
                             onChange={updateForm}
                             required
