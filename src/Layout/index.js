@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "./Home";
-import CreateDeck from "./Components/CreateDeck";
+import CreateDeck from "./Components/Deck/CreateDeck";
 
 function Layout() {
   return (

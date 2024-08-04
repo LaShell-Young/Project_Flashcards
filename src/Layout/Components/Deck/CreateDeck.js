@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { createDeck } from "../../utils/api/index";
-import CreateForm from "./CreateForm";
-import NavBar from "./NavBar";
+import { createDeck } from "../../../utils/api/index";
+import CreateForm from "../CreateForm";
+import NavBar from "../NavBar";
 
 function CreateDeck() {
     const history = useNavigate();

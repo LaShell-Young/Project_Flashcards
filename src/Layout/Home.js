@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import DeckList from './Components/DeckList';
+import DeckList from './Components/Deck/DeckList';
 import { listDecks, deleteDeck } from "../utils/api/index";
 import { Link } from "react-router-dom";
 
