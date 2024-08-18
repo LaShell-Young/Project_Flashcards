@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { readCard, readDeck, updateCard } from "../../../utils/api/index";
 import NavBar from "../NavBar";
-import EditForm from "../EditForm";
+import CreateEditForm from "../CreateEditForm";
 
 function EditCard() {
     const [deck, setDeck] = useState({});
@@ -63,11 +63,7 @@ function EditCard() {
         <div>
             <NavBar path={window.location.href} deck={deck} />
             <h1>{name}: Add Card</h1>
-            <EditForm
-                handleSubmit={handleSubmit}
-                handleCancel={handleCancel}
-                object={card}
-            />
+            <CreateEditForm formType="card" object={card} setObject={setCard} handleSubmit={handleSubmit} handleCancel={handleCancel} />
         </div>
     );
 }

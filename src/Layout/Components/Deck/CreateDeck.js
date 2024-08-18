@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createDeck } from "../../../utils/api/index";
-import CreateForm from "../CreateForm";
+import CreateEditForm from "../CreateEditForm";
 import NavBar from "../NavBar";
 
 function CreateDeck() {
@@ -30,11 +30,16 @@ function CreateDeck() {
         history("/");
     }
 
+    const [deck, setdeck] = useState({
+        "name": "",
+        "description": "",
+    })
+
     return (
         <div>
             <NavBar path={window.location.href} />
             <h1>Create Deck</h1>
-            <CreateForm formType={"deck"} handleSubmit={handleSubmit} handleCancel={handleCancel} />
+            <CreateEditForm formType="deck" object={deck} setObject={setdeck} handleSubmit={handleSubmit} handleCancel={handleCancel} />
         </div>
     );
 }

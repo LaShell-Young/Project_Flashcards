@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { readDeck, updateDeck } from "../../../utils/api/index";
 import NavBar from "../NavBar";
-import EditForm from "../EditForm";
+import CreateEditForm from "../CreateEditForm";
 
 function EditDeck() {
-    const [deck, setDeck] = useState({});
+    const [deck, setDeck] = useState({
+        "name": "",
+        "description": "",
+        "cards": []
+    });
     const { deckId } = useParams();
     const history = useNavigate();
 
@@ -61,12 +65,7 @@ function EditDeck() {
         <div>
             <NavBar path={window.location.href} deck={deck} />
             <h1>Edit Deck</h1>
-            <EditForm
-                formType={"deck"}
-                handleSubmit={handleSubmit}
-                handleCancel={handleCancel}
-                object={deck}
-            />
+            <CreateEditForm formType="deck" object={deck} setObject={setDeck} handleSubmit={handleSubmit} handleCancel={handleCancel} />
         </div>
     );
 }

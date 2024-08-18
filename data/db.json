@@ -16,19 +16,9 @@
       "id": 4
     },
     {
-      "name": "a new deck",
-      "description": "sdkfnskjnfjnksandnjncksjndckjsnkjnalkdnkjsbflsjrc asdv sdjfnlasjkdna odvjncajkndklanknasfnajcdcnakd casdnaso cdnvad",
-      "id": 5
-    },
-    {
       "name": "Can I edit a deck?",
       "description": "yes.",
       "id": 6
-    },
-    {
-      "name": "Am I able to create a new deck?",
-      "description": "Yes!",
-      "id": 7
     }
   ],
   "cards": [
@@ -75,10 +65,16 @@
       "id": 13
     },
     {
-      "front": "Can I edit cards?",
-      "back": "Yes!",
-      "deckId": 7,
-      "id": 14
+      "front": "front side of card - change card",
+      "back": "ksd back - change",
+      "deckId": 4,
+      "id": 15
+    },
+    {
+      "front": "addding anotjbafk card",
+      "back": "asdflknac la sc",
+      "deckId": 2,
+      "id": 16
     }
   ]
 }

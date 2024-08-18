@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { createCard, readDeck } from "../../../utils/api/index";
-import CreateForm from "../CreateForm";
+import CreateEditForm from "../CreateEditForm";
 import NavBar from "../NavBar";
 
 function CreateCard() {
@@ -55,11 +55,17 @@ function CreateCard() {
         history(`/decks/${deckId}`);
     }
 
+    const [card, setCard] = useState({
+        "front": "",
+        "back": "",
+        "deckId": deckId,
+    })
+
     return (
         <div>
             <NavBar path={window.location.href} deck={deck} />
             <h1>{deck.name}: Add Card</h1>
-            <CreateForm handleSubmit={handleSubmit} handleCancel={handleCancel} />
+            <CreateEditForm formType="card" handleSubmit={handleSubmit} handleCancel={handleCancel} object={card} setObject={setCard} />
         </div>
     );
 }
