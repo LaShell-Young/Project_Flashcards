@@ -5,9 +5,16 @@ import NavBar from "../NavBar";
 import CreateEditForm from "../CreateEditForm";
 
 function EditCard() {
-    const [deck, setDeck] = useState({});
-    const [card, setCard] = useState({});
     const { deckId, cardId } = useParams();
+    const [deck, setDeck] = useState({
+        "name": "",
+        "description": "",
+    })
+    const [card, setCard] = useState({
+        "front": "",
+        "back": "",
+        "deckId": deckId,
+    })
     const history = useNavigate();
 
     const name = deck.name ? deck.name : "Deck";

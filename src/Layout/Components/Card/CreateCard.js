@@ -7,7 +7,10 @@ import NavBar from "../NavBar";
 function CreateCard() {
     const history = useNavigate();
     const { deckId } = useParams();
-    const [deck, setDeck] = useState({});
+    const [deck, setDeck] = useState({
+        "name": "",
+        "description": "",
+    })
 
     useEffect(() => {
         // abort controller to prevent memory leaks
