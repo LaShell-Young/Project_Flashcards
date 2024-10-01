@@ -11,11 +11,6 @@
       "id": 3
     },
     {
-      "name": "Almost done?",
-      "description": "Fuck yea!",
-      "id": 4
-    },
-    {
       "name": "Can I edit a deck?",
       "description": "yes.",
       "id": 6
@@ -55,19 +50,19 @@
     {
       "front": "Can I get edit card to work?",
       "back": "Yes baby!",
-      "deckId": 4,
+      "deckId": 2,
       "id": 11
     },
     {
       "front": "test success toast",
       "back": "big boy 888",
-      "deckId": 4,
+      "deckId": 2,
       "id": 13
     },
     {
       "front": "front side of card - change card",
       "back": "ksd back - change",
-      "deckId": 4,
+      "deckId": 3,
       "id": 15
     },
     {
